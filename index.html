@@ -65,7 +65,7 @@
                 </h2>
             </header>
             <form method="post" action="#">
-                <div class="row uniform">
+                <div class="row uniform" >
                     <div>
                         <input type="checkbox" id="fenix" name="fenix" checked>
                         <label for="fenix">Fenix Solutions</label>
@@ -97,13 +97,16 @@
             </div>
             <form class="grid-form" method="post" action="#">
                 <div class="form-control narrow">
-                    <label for="name">Nimi</label>
-                    <input name="name" id="name" type="text">
+                    <input name="name" id="name" type="text" placeholder="Nimi*" required>
+                </div>
+                <div>
+                   
+                    <input name="puh" id="puh" type="tel" placeholder="Puhelinnumero*" required>
                 </div>
                 <div class="form-control narrow">
-                    <label for="email">Sähköposti</label>
-                    <input name="email" id="email" type="email">
+                    <input name="email" id="email" type="email" placeholder="Sähköposti*"required>
                 </div>
+                
                 <!--<div class="form-control narrow">
                     <label for="ktm">Käyttäjämäärä (noin)</label>
                     <input name="ktm" id="Text1" type="text" placeholder="20">
@@ -123,7 +126,7 @@
                 </div>-->
                 <div class="form-control">
                     <label for="message">Viesti</label>
-                    <textarea name="message" id="message" rows="4"></textarea>
+                    <textarea name="message" id="message" rows="4" ></textarea>
                 </div>
                 <ul class="actions">
                     <li>
