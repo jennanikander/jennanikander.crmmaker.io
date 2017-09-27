@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+<html>
 <?php
 /**
  * This example shows making an SMTP connection with authentication.
@@ -50,3 +52,4 @@ if (!$mail->send()) {
     echo 'Message sent!';
 }
 }
+   </html>
