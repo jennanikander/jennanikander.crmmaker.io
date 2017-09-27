@@ -4,6 +4,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
+
 <html>
 <head>
     <title>Kohti asiakkuudenhallintaa yhdellä klikkauksella</title>
@@ -95,7 +96,7 @@
             <div class="row">
                 <p id="P1">Lähettämällä yhteydenottopyynnön yhteystietosi välitetään valitsemillesi toimijoille</p>
             </div>
-            <form class="grid-form" method="post" action="#">
+            <form class="grid-form" method="post" action="send_email.php">
                 <div class="form-control narrow">
                     <input name="name" id="name" type="text" placeholder="Nimi*" required>
                 </div>
@@ -129,9 +130,12 @@
                 </div>
                 <ul class="actions">
                     <li>
-                        <input value="Lähetä" type="submit"></li>
+                        <input value="Lähetä" type="submit" name="submit"></li>
+                       <!-- <input value="Lähetä" type="submit"></li> -->
                 </ul>
             </form>
+            
+
         </div>
     </section>
 
@@ -583,7 +587,7 @@ print 'It took ' + i + ' iterations to sort the deck.';
     <!-- Footer -->
     <footer id="footer">
         <div class="copyright">
-            &copy; Tmi Jenna Nikander 2017. Design: <a href="http://templated.co/">TEMPLATED</a>.
+            &copy; Jenna Nikander 2017. Design: <a href="http://templated.co/">TEMPLATED</a>.
 			
         </div>
     </footer>
