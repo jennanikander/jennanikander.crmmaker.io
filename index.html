@@ -4,6 +4,9 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
+    
+    
+<html>
     <?php
 if(isset($_POST['submit'])) {
  
@@ -70,8 +73,6 @@ $headers = 'From: '.$email_from."\r\n".
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
-    
-<html>
 <head>
     <title>Kohti asiakkuudenhallintaa yhdellä klikkauksella</title>
     <meta charset="ISO-8859-1" />
