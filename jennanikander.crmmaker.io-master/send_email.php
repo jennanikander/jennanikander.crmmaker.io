@@ -1,4 +1,20 @@
 <?php 
+function SendEmailToChosenOnes($emailAddress) {
+	// the message
+	if(isset($_POST["message"]) && !empty($_POST["message"])) {
+	$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
+	Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";
+	}
+	else {
+	$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
+	Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
+	}
+	
+	// use wordwrap() if lines are longer than 70 characters
+	$msg = wordwrap($msg,70);
+	$headers = "From: contact@crmratkaisu.fi";
+	mail($emailAddress,"Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers);
+}
 
 /*echo $_POST["supplier1"];
 echo $_POST["supplier2"];
@@ -8,109 +24,22 @@ echo $_POST["supplier5"];
 echo $_POST["supplier6"];*/
 
 if ($_POST["supplier1"] == true && isset($_POST["name"])){ 
-// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";
+	SendEmailToChosenOnes("info@fenixsolutions.fi"); // fenix
 }
-else{
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("info@fenixsolutions.fi","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); //fenix
-}
-
 if ($_POST["supplier2"] == true && isset($_POST["name"])){
-	// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";
-}
-else{
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("myynti@innofactor.fi","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); // innofactor
+	SendEmailToChosenOnes("myynti@innofactor.fi"); // innofactor
 }
 if ($_POST["supplier3"] == true && isset($_POST["name"])){
-	// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt ecraftille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-else{
-$msg = $_POST["name"]." on jättänyt ecraftille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("info@ecraft.com","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); //ecraft
+	SendEmailToChosenOnes("info@ecraft.com"); //ecraft
 }
 if ($_POST["supplier4"]== true && isset($_POST["name"])){
-	// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-else{
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("myynti@cloudriven.fi","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); //cloudriven
+	SendEmailToChosenOnes("myynti@cloudriven.fi"); //cloudriven
 }
 if ($_POST["supplier5"]== true && isset($_POST["name"])){
-	// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-else{
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("myynti@digitalillustrated.com","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); //digital illustrated
+	SendEmailToChosenOnes("myynti@digitalillustrated.com"); //digital illustrated
 }
 if ($_POST["supplier6"]== true && isset($_POST["name"])){
-
-// the message
-if(isset($_POST["message"]) && !empty($_POST["message"])){
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä viestillä: \n\n\"".$_POST["message"]."\"\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-else{
-$msg = $_POST["name"]." on jättänyt teille yhteydenottopyynnön crmratkaisu.fi:ssä.\n\n
-Tiedot:\nPuhelinnumero: ".$_POST["puh"]."\nSähköpostiosoite: ".$_POST["email"]."\n\nTerveisin,\ncrmratkaisu.fi";//," on lähettänyt yhteydenottooyynnön.\nPuhelinnumero: ",$_POST["puh"],".\nSähköpostiosoite: ",$_POST["email"];
-}
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-$headers = "From: contact@crmratkaisu.fi";
-
-// send email
-mail("sales@meteoriitti.com","Yhteydenottopyyntö crmratkaisu.fistä",$msg,$headers); //sininen meteoriitti
+	SendEmailToChosenOnes("sales@meteoriitti.com"); //sininen meteoriitti
 }
 ?>
 
